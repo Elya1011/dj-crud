@@ -33,8 +33,8 @@ jobs:
           --health-intervals 5s
           --health-timeout 5s
           --health-retries 5
-
-      steps:
+          
+    steps:
         - name: Check update
           uses: actions/checkout@v4
 
