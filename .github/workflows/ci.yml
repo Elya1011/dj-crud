@@ -30,7 +30,7 @@ jobs:
 
         options:
           --health-cmd pg_isready
-          --health-intervals 5s
+          --health-interval 5s
           --health-timeout 5s
           --health-retries 5
 
@@ -61,3 +61,13 @@ jobs:
           DB_PASSWORD: ${{ env.DB_PASSWORD }}
           DB_HOST: ${{ env.DB_HOST }}
           DB_PORT: ${{ env.DB_PORT }}
+
+      - name: Деплой
+        uses: appleboy/ssh-actions@main
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          password: ${{ secrets.SSH_PASSWORD }}
+          script: |
+            cd /home/alimova/dj-crud
+            git pull origin main
