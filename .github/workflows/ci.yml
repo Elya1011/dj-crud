@@ -68,6 +68,4 @@ jobs:
           host: ${{ secrets.SSH_HOST }}
           username: ${{ secrets.SSH_USER }}
           password: ${{ secrets.SSH_PASSWORD }}
-          script: |
-            cd /home/alimova/dj-crud
-            git pull origin main
+          script: expect /home/alimova/dj-crud/deploy.exp
