@@ -9,6 +9,6 @@ class MyTest(TestCase):
 
     def test_sample_view(self):
         url = '/api/v1/test/'
-        client = APIClient
+        client = APIClient()
         response = client.get(url)
         self.assertEqual(response.status_code, 200)
