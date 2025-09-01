@@ -49,6 +49,9 @@ jobs:
       - name: Линтинг
         run: flake8 logistic/ --exclude=logistic/migrations/
 
+      - name: Apply migrations
+        run: python manage.py migrate
+
       - name: run tests
         run: python manage.py test
         env:
